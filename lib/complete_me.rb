@@ -1,41 +1,30 @@
-require_relative '../lib/node'
+require_relative 'node'
 
 class CompleteMe
-attr_accessor :head, :word
+  attr_reader :count, :root
 
   def initialize
-    head = Node.new
+    @root = Node.new
     @count = 0
-    @dictionary = []
   end
 
-  def insert(input)
-    @dictionary = []
-    @dictionary << "#{input.downcase}"
+  def insert(word)
+    root.insert(word.downcase)
+    @count += 1
   end
 
-  def select
-    #more magic here
-    counter += 1
+  def populate(list)
+    word_list = list.split("\n")
+    word_list.each { |word| root.insert(word) }
+    @count = root.count_valid
   end
 
-  def suggest
+  def suggest(string)
+    root.suggest(string)
   end
 
-  #don't know if i need a score - but might
-  def score
+  def select(input, selection)
+    root.select(selection)
   end
-
-  def populate(file)
-    file = file.split("\n")
-    @dictionary = []
-    @dictionary << file
-  end
-
-  def count
-    @dictionary.size
-  end
-
-
 
 end
