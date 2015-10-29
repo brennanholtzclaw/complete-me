@@ -1,6 +1,6 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/complete_me'
+# require 'minitest/autorun'
+# require 'minitest/pride'
+require_relative "../lib/complete_me"
 
 class CompleteMeTest < MiniTest::Test
 
